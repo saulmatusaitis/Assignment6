@@ -24,7 +24,7 @@ def load(filename: str) -> Dict:
 # Task 1 unpickle the dictionary and assigned it to the variable
 # spa_eng_dict. 
 # This should be 1 line of code that starts with...
-# spa_eng_dict = ???
+spa_eng_dict = load('spanish_to_english.dat')
 
 assert spa_eng_dict["gato"] == "cat"
 assert spa_eng_dict["perro"] == "dog"
@@ -40,4 +40,14 @@ words = ["gato", "universidad", "pitón", "amor", "ciencias", "comida"]
 # I have provided a file called translation_ans.txt to show you what
 # the final result should look like. 
 
+with open('translate.txt', 'w') as file:
+  for word in words:
+    if word in spa_eng_dict:
+      file.wrie(spa_eng_dict[word])
+    else:
+      file.write('unknown')
+    file.write('\n')
+  file.close()
+         
+        
 
