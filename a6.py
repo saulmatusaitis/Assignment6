@@ -46,6 +46,9 @@ class BayesClassifier:
         Train here means generates `pos_freq/neg_freq` dictionaries with frequencies of
         words in corresponding positive/negative reviews
         """
+
+
+
         # get the list of file names from the training data directory
         # os.walk returns a generator (feel free to Google "python generators" if you're
         # curious to learn more, next gets the first value from this generator or the
@@ -170,7 +173,8 @@ class BayesClassifier:
 
             neg_prob += math.log(num_neg_app/num_neg_words)
 
-        
+        print(f'pos_prob is: {pos_prob}')
+        print(f'neg_prob is: {neg_prob}')
 
         # for debugging purposes, it may help to print the overall positive and negative
         # probabilities
@@ -326,4 +330,20 @@ if __name__ == "__main__":
     print("\nThe following should all be negative.")
     print(b.classify('rainy days are the worst'))
     print(b.classify('computer science is terrible'))
+    
+
+    print("\nThe following is to test out the method with each groups responses")
+    print(b.classify('Artificial inteligence is the best'))
+    print(b.classify('I love it when I eat Chipotle!'))
+    print(b.classify('Breaking Bad is the best TV show I have ever seen'))
+
+    print('My negatives:')
+    print(b.classify('Tomato soup is the worst'))
+    print(b.classify('I have Netflix, they keep raising their prices and the originals are trash'))
+    print(b.classify('Doritos Locos Tacos are overrated'))
+
+    print('Positive film reviews:')
+    print(b.classify('Pulp Fiction is a masterpiece, a real titan, a classic, it really is a unique film and it has that classic Quentin Tarantino theme.'))
+
+
     pass
